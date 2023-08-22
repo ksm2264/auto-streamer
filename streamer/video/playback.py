@@ -24,6 +24,10 @@ def play_video_bytes(video_bytes):
     while player.is_playing():
         time.sleep(0.1)
 
+    # Stop the player and release resources
+    player.stop()
+    player.release()
+
 if __name__ == '__main__':
 
     with open("test.mp4", "rb") as f:
