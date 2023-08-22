@@ -4,3 +4,4 @@ audio_clips
 audio.mp3
 test.mp4
 temp_video.mp4
+**/__pycache__/**
