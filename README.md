@@ -5,15 +5,15 @@
 
 # Set up your accounts and get your keys:
 ### OpenAI (text to text)
-https://platform.openai.com/\
+https://platform.openai.com/
 gpt-4 or gpt-3.5-turbo
 
 ### Elevenlabs (voice cloning text to audio)
-https://elevenlabs.io/\
+https://elevenlabs.io/
 Voice clone from a few audio samples
 
 ### Replicate (audio + picture to video w/ wav2lip)
-https://replicate.com/\
+https://replicate.com/
 Replicate hosts miscellaneous open source models\
 note: could potentially run wav2lip locally
 
@@ -51,9 +51,10 @@ TWITCH_IRC_TOKEN=''
 save it as `portrait.jpg` in the top level
 
 ## create idle animation
-https://ai.nero.com/face-animation\
+https://ai.nero.com/face-animation
 worked well (but it cropped it weirdly)
-needed to layer in OBS
+needed to layer in OBS\
+call it `idle_animation.gif`` and put it in this folder (.gitignored)
 
 ## set up obs
 https://obsproject.com/
