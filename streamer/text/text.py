@@ -58,12 +58,6 @@ async def main():
         
         print(response)
 
-    
-
-    # audio = speaker.generate_audio(response)
-    
-    # print(response)
-    # play(audio)
 
 if __name__ == '__main__':
     asyncio.run(main())
