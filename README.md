@@ -5,11 +5,11 @@
 
 # Set up your accounts and get your keys:
 ### OpenAI (text to text)
-https://platform.openai.com/
+https://platform.openai.com/ \
 gpt-4 or gpt-3.5-turbo
 
 ### Elevenlabs (voice cloning text to audio)
-https://elevenlabs.io/
+https://elevenlabs.io/ \
 Voice clone from a few audio samples
 
 ### Replicate (audio + picture to video w/ wav2lip)
@@ -51,14 +51,15 @@ TWITCH_IRC_TOKEN=''
 save it as `portrait.jpg` in the top level
 
 ## create idle animation
-https://ai.nero.com/face-animation
+https://ai.nero.com/face-animation \
 worked well (but it cropped it weirdly)
 needed to layer in OBS\
 call it `idle_animation.gif`` and put it in this folder (.gitignored)
 
 ## set up obs
-https://obsproject.com/
+https://obsproject.com/ \
 - Connect to twitch (Settings -> Stream -> Twitch)
 - Create new Source -> name it 'dynamic' -> check "local file", uncheck "looping"
 - Create a looping source with looping animation (local file, looping = True)
 - Create an Image source with the portrait, put it behind the looping source (in case Nero cropped the image weirdly)
+- Tools -> Websocket Server Settings -> Set port to 4444, password to 123 (this allows the python program to communicate with OBS)
