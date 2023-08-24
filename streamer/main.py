@@ -4,8 +4,6 @@ import os
 
 from streamer.twitch.bot import TwitchBot
 
-character_name = os.getenv('CHARACTER_NAME')
-
 def ensure_requirements():
 
     # check for necessary .env entries
