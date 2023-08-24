@@ -1,31 +1,26 @@
 from dotenv import load_dotenv
-load_dotenv()
-
-
+load_dotenv
 import os
 
+from streamer.twitch.bot import TwitchBot
 
-from streamer.audio.generate import Speaker
-from streamer.text.text import get_response
-from streamer.video.video import get_video_for
-from streamer.video.playback import play_video_bytes
+character_name = os.getenv('CHARACTER_NAME')
 
+def ensure_requirements():
 
-name = os.getenv('CHARACTER_NAME')
+    # check for necessary .env entries
+
+    # check for portrait
+
+    # check for idle_animation
+
+    # ensure elevenlabs has voice, otherwise create it
+    pass
+
 
 if __name__ == '__main__':
 
-    speaker = Speaker()
+    ensure_requirements()
 
-    print(f'You are talking to {name}, say something:')
-    while True:
-        text = input('')
-
-        response = get_response(text)
-
-        audio = speaker.generate_audio(response)
-        
-        video = get_video_for(audio)
-
-        print(response)
-        play_video_bytes(video)
+    bot = TwitchBot()
+    bot.run()

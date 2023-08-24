@@ -2,14 +2,12 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from elevenlabs import play
-
+import asyncio
 
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
 
-from streamer.audio.generate import Speaker
 
 name = os.getenv('CHARACTER_NAME')
 
@@ -26,7 +24,7 @@ prompt = PromptTemplate(input_variables = ['name', 'message'],
 
 
 llm = ChatOpenAI(
-    model_name='gpt-4'
+    model_name='gpt-3.5-turbo'
 )
 
 chain = LLMChain(
@@ -35,6 +33,12 @@ chain = LLMChain(
     verbose = True
 )
 
+async def get_response_async(text: str) -> str:
+
+    response = await chain.apredict(name=name,
+                    message=text)
+    
+    return response
 
 def get_response(text: str):
 
@@ -43,17 +47,24 @@ def get_response(text: str):
     
     return response
 
-if __name__ == '__main__':
-
-    speaker = Speaker()
+async def main():
+ # speaker = Speaker()
 
     print(f'You are talking to {name}, say something:')
     while True:
         text = input('')
 
-        response = get_response(text)
-        
-        audio = speaker.generate_audio(response)
+        response = await get_response_async(text)
         
         print(response)
-        play(audio)
+
+    
+
+    # audio = speaker.generate_audio(response)
+    
+    # print(response)
+    # play(audio)
+
+if __name__ == '__main__':
+    asyncio.run(main())
+   
