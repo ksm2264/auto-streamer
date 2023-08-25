@@ -1,5 +1,6 @@
 from elevenlabs import clone, set_api_key, voices, Voice
 import os
+import shutil
 import glob
 from dotenv import load_dotenv
 load_dotenv()
@@ -43,7 +44,7 @@ def clone_voice() -> Voice:
             files=glob.glob(f'audio_clips/*.mp3'),
         )
 
-    os.rmdir('audio_clips')
+    shutil.rmtree('audio_clips')
 
     return voice
 

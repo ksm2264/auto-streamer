@@ -56,7 +56,7 @@ save it as `portrait.jpg` in the top level
 https://ai.nero.com/face-animation  
 worked well (but it cropped it weirdly)
 needed to layer in OBS\
-call it `idle_animation.gif`` and put it in this folder (.gitignored)
+call it `idle_animation.gif` and put it in the top level
 
 ## set up obs
 https://obsproject.com/  
