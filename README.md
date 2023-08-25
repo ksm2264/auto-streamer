@@ -65,3 +65,7 @@ https://obsproject.com/
 - Create a looping source with looping animation (local file, looping = True)
 - Create an Image source with the portrait, put it behind the looping source (in case Nero cropped the image weirdly)
 - Tools -> Websocket Server Settings -> Set port to 4444, password to 123 (this allows the python program to communicate with OBS)
+
+# and go:
+`python -m streamer.main`
+and also hit "start streaming" on OBS
