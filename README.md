@@ -1,4 +1,5 @@
 # auto-streamer
+AI twitch streamer (any figure that GPT would know)
 
 # set up conda env
 `conda env create -f env.yaml`
