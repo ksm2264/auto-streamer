@@ -6,10 +6,12 @@ from moviepy.editor import AudioFileClip
 from dotenv import load_dotenv
 load_dotenv()
 
+# youtube video will be downloaded and then clipped up, clips stored in this folder
 TEMP_CLIPS_PATH = 'audio_clips'
 
-def download_youtube_video():
+def download_youtube_video() -> str:
 
+    # set this in .env, youtube video with target voice
     vid_url = os.getenv('VOICE_REF_LINK')
 
     yt = YouTube(vid_url)
@@ -28,7 +30,7 @@ def cut_into_clips(vid_path: str, clip_length=12):
         end_time = clip_length
         clip_index = 0
 
-        while end_time <= 120:  # 2 minutes in seconds
+        while end_time <= 120:  # 2 minutes in seconds, only gets the first 2 minutes of video
             target_file = os.path.join(TEMP_CLIPS_PATH, f'clip_{clip_index}.mp4')
             ffmpeg_extract_subclip(vid_path, start_time, end_time, targetname=target_file)
 
@@ -43,6 +45,7 @@ def cut_into_clips(vid_path: str, clip_length=12):
     except Exception as e:
         print(e)
 
+# creates audio clips from youtube link indicated in .env, then removes downloaded youtube video
 def create_clips():
     video_file = download_youtube_video()
     cut_into_clips(video_file)

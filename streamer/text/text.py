@@ -48,7 +48,6 @@ def get_response(text: str):
     return response
 
 async def main():
- # speaker = Speaker()
 
     print(f'You are talking to {name}, say something:')
     while True:

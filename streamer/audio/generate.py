@@ -7,6 +7,7 @@ load_dotenv()
 
 name = os.getenv('CHARACTER_NAME')
 
+# I don't know if this has to be a class necessarily
 class Speaker:
 
     def __init__(self):

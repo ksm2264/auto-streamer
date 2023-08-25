@@ -1,4 +1,4 @@
-from elevenlabs import clone, set_api_key, voices
+from elevenlabs import clone, set_api_key, voices, Voice
 import os
 import glob
 from dotenv import load_dotenv
@@ -11,21 +11,24 @@ name = os.getenv('CHARACTER_NAME')
 
 from streamer.audio.clip import create_clips
 
-def get_voice():
+def get_voice() -> Voice:
     my_voices = voices()
 
     filtered = [voice for voice in my_voices if voice.name == name]
 
+    # return voice with name if found, otherwise create it
     if len(filtered) == 1:
         return filtered[0]
     else:
         return clone_voice()
 
-def clone_voice():
+def clone_voice() -> Voice:
 
+    # if audio clips don't exist yet, create them from youtube video linked in .env
     if not os.path.exists('audio_clips'):
         create_clips()
 
+    # elevenlabs account has stored voices limit, delete one and then close if that's the case
     try:
         voice = clone(
             name=name,

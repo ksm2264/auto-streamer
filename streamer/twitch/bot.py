@@ -21,9 +21,10 @@ class TwitchBot(commands.Bot):
                          nick=nick, prefix='!',
                          initial_channels=[channel])
 
-        self.loop_vid_path = 'C:\\Users\\karl\\projects\\auto-streamer\\test.mp4'
-
+        # as chat messages come in they will be added to this queue
         self.chat_queue = asyncio.Queue()
+
+        # as videos finish processing, commands used to play the vidoe are added to this queue
         self.video_command_queue = asyncio.Queue()
 
     async def event_ready(self):
@@ -34,6 +35,9 @@ class TwitchBot(commands.Bot):
         asyncio.create_task(self.play_videos())
 
     async def event_message(self, message):
+        '''
+        add message to queue as they come in and print current queue
+        '''
         print(message.content)
         await self.chat_queue.put(message.content)
         await self.handle_commands(message)
@@ -46,17 +50,22 @@ class TwitchBot(commands.Bot):
 
     async def process_messages(self):
         while True:
+            # will wait here until a message arrives from the chat queue 
             message = await self.chat_queue.get()
+            
+            # for each message, create the video and add the video command to the video queue
             video_command = await text_to_video_command(message)
             await self.video_command_queue.put(video_command)
 
     async def play_videos(self):
         while True:
-
+            
+            # waits here for new video commands
             video_command = await self.video_command_queue.get()
 
             print('processing new video command')
-            # Execute the video command
+
+            # Execute the video command (update OBS 'dynamic' source)
             await play_video_command(video_command)
 
 
