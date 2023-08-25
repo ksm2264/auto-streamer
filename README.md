@@ -68,5 +68,5 @@ https://obsproject.com/
 - Tools -> Websocket Server Settings -> Set port to 4444, password to 123 (this allows the python program to communicate with OBS)
 
 # and go:
-`python -m streamer.main`
+`python -m streamer.main`  
 and also hit "start streaming" on OBS
