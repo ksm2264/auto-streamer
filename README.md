@@ -15,7 +15,9 @@ Voice clone from a few audio samples
 ### Replicate (audio + picture to video w/ wav2lip)
 https://replicate.com/  
 Replicate hosts miscellaneous open source models\
-note: could potentially run wav2lip locally
+note: could potentially run wav2lip locally  
+might be worth testing your portrait.jpg here:  
+https://replicate.com/devxpy/cog-wav2lip
 
 ### Twitch TV stream and dev account
 https://twitchapps.com/tmi (TWITCH_IRC_TOKEN)
