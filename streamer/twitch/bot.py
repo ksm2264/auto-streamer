@@ -9,8 +9,10 @@ load_dotenv()
 irc_token = os.getenv('TWITCH_IRC_TOKEN')
 client_id = os.getenv('TWITCH_CLIENT_ID')
 client_secret = os.getenv('TWITCH_CLIENT_SECRET')
-nick = 'auto_streamer'
-channel = 'auto_streamer'
+
+nick = os.getenv('TWITCH_NICKNAME')
+channel = os.getenv('TWITCH_CHANNEL')
+
 
 from streamer.video.command import text_to_video_command, play_video_command
 
