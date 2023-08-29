@@ -25,6 +25,7 @@ https://twitchapps.com/tmi (TWITCH_IRC_TOKEN)
 - Click connect
 
 https://dev.twitch.tv/ (TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET)
+- Set up Two-Factor Authentication (https://help.twitch.tv/s/article/two-factor-authentication?language=en_US#Enabling)  
 - Your Console -> Applications -> Register Your Application -> `http://localhost` for OAuth Redirect URLS 
 - Applications -> Manage -> copy Client ID, and generate Client Secret
 
