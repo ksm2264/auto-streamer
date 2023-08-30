@@ -64,6 +64,7 @@ call it `idle_animation.gif` and put it in the top level
 
 ## set up obs
 https://obsproject.com/  
+- Install newer websocket server plugin (https://github.com/obsproject/obs-websocket/releases/download/4.9.1-compat/obs-websocket-4.9.1-compat-Qt6-Windows-Installer.exe)  
 - Connect to twitch (Settings -> Stream -> Twitch)
 - Create new Source -> Media Source -> name it 'dynamic' -> check "local file", uncheck "looping"
 - Create a looping source with looping animation (local file, looping = True). Use your idle_animation.gif
